@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="background-box">
+    <div class="bg-image" style="background-image: url('https://www.homezone.com.au/wp-content/uploads/2020/08/CARL_Granada-Retreat_External.jpg');
+            background-color: rgba(0, 0, 0, 0.6); height: 90vh;">
+
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6); height: 100%;">
+
+            <div class="d-flex justify-content-center" style="height: 100%; width: 100%;">
+                <div class="d-flex flex-column justify-content-center">
+                    <form class="search-bar" method="POST">
+                        <div class="row">
+                            <div class="col-md-8" style="padding: 0px;">
+                                <div>
+                                    <input type="text" name="search-result" class="form-control rounded-0"
+                                        style="height: 60px;" placeholder="Try entering a suburb..."
+                                        value="{{ request.form['search-result'] }}">
+                                </div>
+                            </div>
+                            <div class="col-md-2" style="padding: 0px;">
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-light rounded-0" data-toggle="modal"
+                                    data-target="#exampleModalCenter"
+                                    style="width: 100%; height: 60px; font-weight: bold;">
+                                    <div class="d-flex d-flex justify-content-center">
+                                        <div style="padding-right: 10px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z" />
+                                            </svg>
+                                        </div>
+                                        <div style="padding-left: 10px;">FILTERS</div>
+                                    </div>
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                    style="color: #515b6e;" aria-labelledby="exampleModalCenterTitle"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Filters</h5>
+                                                <button type="button" class="close border" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                ...
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2" style="padding: 0px;">
+                                <div class="form-group">
+                                    <button type="submit" name="search" class="btn btn-primary form-control rounded-0"
+                                        style="height: 60px;">Search Properties</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="padding-top: 50px; padding-left: 70px;">
+    <div>
+        <h3>NEW</h3>
+    </div>
+    <div style="width: 65px; height: 3px; background: #FFE512;"></div>
+</div>
+
+
+<div class=" container" style="padding-top: 10px; padding-bottom: 50px;">
+
+    <div class="row">
+        {% for i in range(6) %}
+        <div class="col-md-6">
+            <div class="house-info">
+                <div class="house-info-image">
+                    <a href="{{ url_for('view') }}">
+                        <img class="house-info-image"
+                            src="https://i.pinimg.com/originals/21/3d/f2/213df27291756fd287f33bfe290fae36.jpg">
+                    </a>
+                </div>
+                <div class="house-details">
+                    <div class="house-prize d-flex flex-row justify-content-between" style="padding-bottom: 10px;">
+                        <div style="color: rgb(150, 148, 148);">House For Sale</div>
+                        <div>Auction ($920,000 - $970,000)</div>
+                    </div>
+                    <div class="house-address" style="padding-bottom: 10px; font-weight: bold;">
+                        <a href="{{ url_for('view') }}" style="text-decoration: none; color: #515b6e;"> 2/9 Harry
+                            Street, Bayswater</a>
+                    </div>
+                    <div class="house-rooms">
+                        <span class="num-beds">3 Beds</span><span style="color: darkgray;"> / </span>
+                        <span class="num-bath">1 Bath</span><span style="color: darkgray;"> / </span>
+                        <span class="num-cars">1 Car</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {% endfor %}
+    </div>
+
+</div>
+<div class="container" style="text-align: center;  padding-bottom: 50px;">
+    <a href="{{ url_for('search') }}">
+        <button type="button" class="btn btn-secondary"
+            style="width: 190px; height: 50px; background: #333333; font-size: small;">
+            <div class="d-flex flex-row justify-content-between" style="padding: 5px;">
+                SEE ALL FOR SALE
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" class="bi bi-arrow-right-short"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                </svg>
+            </div>
+        </button>
+    </a>
+</div>
+
+
+{% endblock content %}

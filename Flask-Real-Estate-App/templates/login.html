@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-center" style="height: 80vh;">
+    <div class="d-flex flex-column justify-content-center">
+        <div class="border rounded login-register-box ">
+            <h1 style="text-align: center;">Login</h1>
+            <form action="" method="post" novalidate class="login-register-form">
+                {{ form.hidden_tag() }}
+
+                <div class="d-flex justify-content-center" style="margin-top: 20px;">
+                    <div class="input-group">
+                        {{ form.email(size=32, placeholder='Email', class="form-control no-border border-bottom") }}
+                    </div>
+                </div>
+                {% for error in form.email.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                <div class="d-flex justify-content-center" style="margin-top: 20px;">
+                    <div class="input-group">
+                        {{ form.password(size=32, placeholder='Password', class="form-control no-border border-bottom")
+                        }}
+                    </div>
+                </div>
+                {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                <div class="error" style="padding-bottom: 10px;">
+                    {% for error in errors %}
+                    {% if inv_login %}
+                    <span class='error'>{{error.invalid_login}}</span>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="d-flex justify-content-center" style="margin-top: 30px;">
+                    <div class="row" style="width: 85%;">
+                        <div class="col-5" style="text-align: left; color: rgb(150, 158, 160);">
+                            {{ form.remember(class="form-check-input") }}
+                            {{ form.remember.label(class="form-check-label") }}
+                        </div>
+                        <div class="col-7" style="text-align: right;">
+                            <a href="">Forgot your password?</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 10px;">
+                    {{ form.submit(class="btn btn-primary submit-button") }}
+                </div>
+
+                <p style="padding: 20px; color: rgb(150, 158, 160);">Don't have an account? <a
+                        href="{{ url_for('register') }}">Register</a>
+                </p>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

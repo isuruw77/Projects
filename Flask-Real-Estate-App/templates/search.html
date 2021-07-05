@@ -1,0 +1,271 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="padding-top: 30px;">
+    <form class="search-bar" style="width: 100%;" method="POST">
+        <div class="row border">
+
+            <div class="col-md-8" style="padding: 0px;">
+                <div>
+                    <input type="text" name="search-result" class="form-control rounded-0 border-0"
+                        style="height: 60px;" placeholder="Try entering a suburb..."
+                        value="{{ request.form['search-result'] }}">
+                </div>
+            </div>
+
+            <div class="col-md-2" style="padding: 0px;">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter"
+                    style="width: 100%; height: 60px; font-weight: bold;">
+                    <div class="d-flex d-flex justify-content-center">
+                        <div style="padding-right: 10px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-sliders" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z" />
+                            </svg>
+                        </div>
+                        <div style="padding-left: 10px;">FILTERS</div>
+                    </div>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <form method="POST">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Filters</h5>
+                                    <button type="button" class="close border" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h7 style="font-weight: bold;" class="modal-title" id="exampleModalLongTitle">
+                                        Property Types</h7>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="h" class="defaultCheck1"
+                                            name="house-type">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            House
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="u" class="defaultCheck1"
+                                            name="house-type">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Unit
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="t" class="defaultCheck1"
+                                            name="house-type">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Townhouse
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <div class="modal-body">
+                                    <h7 style="font-weight: bold;" class="modal-title" id="exampleModalLongTitle">
+                                        Price</h7>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="Min" name="min-value">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="Max" name="max-value">
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="modal-body">
+                                    <div>
+                                        <h7 style="font-weight: bold;" class="modal-title" id="exampleModalLongTitle">
+                                            Bedrooms</h7>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                        <input type="radio" class="btn-check" name="bedrooms" id="btnradio1"
+                                            autocomplete="off" checked>
+                                        <label class="btn btn-outline-primary" for="btnradio1">Any</label>
+
+                                        <input type="radio" class="btn-check" name="bedrooms" id="btnradio2"
+                                            autocomplete="off" value="1">
+                                        <label class="btn btn-outline-primary" for="btnradio2">1+</label>
+
+                                        <input type="radio" class="btn-check" name="bedrooms" id="btnradio3"
+                                            autocomplete="off" value="2">
+                                        <label class="btn btn-outline-primary" for="btnradio3">2+</label>
+
+                                        <input type="radio" class="btn-check" name="bedrooms" id="btnradio4"
+                                            autocomplete="off" value="3">
+                                        <label class="btn btn-outline-primary" for="btnradio4">3+</label>
+
+                                        <input type="radio" class="btn-check" name="bedrooms" id="btnradio5"
+                                            autocomplete="off" value="4">
+                                        <label class="btn btn-outline-primary" for="btnradio5">4+</label>
+
+                                        <input type="radio" class="btn-check" name="bedrooms" id="btnradio6"
+                                            autocomplete="off" value="5">
+                                        <label class="btn btn-outline-primary" for="btnradio6">5+</label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="modal-body">
+                                    <div>
+                                        <h7 style="font-weight: bold;" class="modal-title" id="exampleModalLongTitle">
+                                            Bathrooms</h7>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                        <input type="radio" class="btn-check" name="bathrooms" id="btnradio7"
+                                            autocomplete="off" checked>
+                                        <label class="btn btn-outline-primary" for="btnradio7">Any</label>
+
+                                        <input type="radio" class="btn-check" name="bathrooms" id="btnradio8"
+                                            autocomplete="off" value="1">
+                                        <label class="btn btn-outline-primary" for="btnradio8">1+</label>
+
+                                        <input type="radio" class="btn-check" name="bathrooms" id="btnradio9"
+                                            autocomplete="off" value="2">
+                                        <label class="btn btn-outline-primary" for="btnradio9">2+</label>
+
+                                        <input type="radio" class="btn-check" name="bathrooms" id="btnradio10"
+                                            autocomplete="off" value="3">
+                                        <label class="btn btn-outline-primary" for="btnradio10">3+</label>
+
+                                        <input type="radio" class="btn-check" name="bathrooms" id="btnradio11"
+                                            autocomplete="off" value="4">
+                                        <label class="btn btn-outline-primary" for="btnradio11">4+</label>
+
+                                        <input type="radio" class="btn-check" name="bathrooms" id="btnradio12"
+                                            autocomplete="off" value="5">
+                                        <label class="btn btn-outline-primary" for="btnradio12">5+</label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="modal-body">
+                                    <div>
+                                        <h7 style="font-weight: bold;" class="modal-title" id="exampleModalLongTitle">
+                                            Parking</h7>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                        <input type="radio" class="btn-check" name="parking" id="btnradio13"
+                                            autocomplete="off" checked>
+                                        <label class="btn btn-outline-primary" for="btnradio13">Any</label>
+
+                                        <input type="radio" class="btn-check" name="parking" id="btnradio14"
+                                            autocomplete="off" value="1">
+                                        <label class="btn btn-outline-primary" for="btnradio14">1+</label>
+
+                                        <input type="radio" class="btn-check" name="parking" id="btnradio15"
+                                            autocomplete="off" value="2">
+                                        <label class="btn btn-outline-primary" for="btnradio15">2+</label>
+
+                                        <input type="radio" class="btn-check" name="parking" id="btnradio16"
+                                            autocomplete="off" value="3">
+                                        <label class="btn btn-outline-primary" for="btnradio16">3+</label>
+
+                                        <input type="radio" class="btn-check" name="parking" id="btnradio17"
+                                            autocomplete="off" value="4">
+                                        <label class="btn btn-outline-primary" for="btnradio17">4+</label>
+
+                                        <input type="radio" class="btn-check" name="parking" id="btnradio18"
+                                            autocomplete="off" value="5">
+                                        <label class="btn btn-outline-primary" for="btnradio18">5+</label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" name="filter" class="btn btn-primary">Filter Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2" style="padding: 0px;">
+                <div class="form-group">
+                    <button type="submit" name="search-bar" class="btn btn-primary form-control rounded-0"
+                        style="height: 60px;">Search
+                        Properties</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+<div class="container" style="padding-top: 50px;">
+    {% if results is not none %}
+    {% for result in results %}
+
+
+    <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 70%;">
+        <img class="card-img-top"
+            src="https://cp-a3.s3.us-west-1.amazonaws.com/Houses+Dataset/{{ (result['id']) }}_frontal.jpg"
+            alt="House Image">
+        <div class="card-body">
+            <div>
+                <div class="house-prize d-flex flex-row justify-content-between">
+                    <div style="font-size: larger; padding-bottom: 10px;">${{ (result['fields']['price'][0])|int }}
+                    </div>
+
+                    <div>
+                        <form method="POST">
+                            <input type="text" style="display: none;" value=" {{ (result['id']) }}" name="favourite_ID">
+                            <button type="submit" class="btn btn-light" name="favourite">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" fill="currentColor"
+                                    class="bi bi-star" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div style="color: rgb(150, 148, 148); padding-bottom: 10px;">
+                    {% if result['fields']['type'][0] == 'h' %}
+                    House For Sale
+                    {% elif result['fields']['type'][0] == 'u' %}
+                    Unit For Sale
+                    {% elif result['fields']['type'][0] == 't' %}
+                    Townhouse For Sale
+                    {% elif result['fields']['type'][0] == 'dev site' %}
+                    Development Site For Sale
+                    {% else %}
+                    Other Residential
+                    {% endif %}
+                </div>
+
+                <div class="house-address" style="font-weight: bold; padding-bottom: 10px;">
+                    {{ result['fields']['suburb'][0] }}
+                </div>
+                <div class="house-rooms">
+                    <span class="num-beds">{{ (result['fields']['bedroom2'][0])|int }} Beds</span><span
+                        style="color: darkgray;"> /
+                    </span>
+                    <span class="num-bath">{{ (result['fields']['bathroom'][0])|int }} Bath</span><span
+                        style="color: darkgray;"> /
+                    </span>
+                    <span class="num-cars">{{ (result['fields']['car'][0])|int }} Car</span>
+                </div>
+                <form method="POST">
+                    <input type="text" style="display: none;" value=" {{ (result['id']) }}" name="ID">
+                    <div class="d-flex flex-row justify-content-center">
+                        <button type="submit" name="house-ID" class="btn btn-primary">View</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock content %}

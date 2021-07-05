@@ -1,0 +1,92 @@
+body {
+    color: #515b6e;
+    font-family: "F37 Bolton", sans-serif;
+    background-color: #FFFFF8;
+}
+
+.login-register-box{
+    width: 500px;
+    /* background-color: #FFFAFA; */
+}
+
+.login-register-box h1{
+    padding: 25px;
+}
+
+.login-register-form{
+    text-align: center;
+}
+
+.no-border {
+    border: 1;
+    padding: 10px;
+}
+
+.input-group{
+    width: 80%;
+}
+
+.submit-button{
+    width: 80%;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.background-box{
+    color: aliceblue;
+}
+
+/* ----------------HOME PAGE--------------- */
+.search-bar{
+    width: 1000px;
+}
+
+.search-input{
+    width: 100%;
+}
+
+.row{
+    padding: 0px;
+}
+
+.nav-link{
+    margin-right: 30px;
+}
+
+.house-info{
+    height: 550px;
+    padding: 30px;
+}
+
+.house-info-image{
+    height: 380px;
+    text-align: center;
+}
+
+.house-details{
+    padding: 30px;
+}
+
+/* ----------------VIEW PAGE--------------- */
+.view-details{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.icons{
+    padding-right: 10px;
+}
+
+.property-desc{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 100px;
+}
+.error{
+    padding-top: 3px;
+    color: red;
+    font-size: 17px;
+}
