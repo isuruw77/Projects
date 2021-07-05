@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row border rounded password-edit">
+    <div class="col-md-3">
+        <img class="card-img-top user-image-profile" src="{{user_image}}" alt="User Profile Picture">
+        <div class="card-body" style="text-align: center;">
+            <h5 class="card-title">{{user}}</h5>
+        </div>
+    </div>
+    <div class="col-md-9" style="padding: 10px;">
+        <h1 class="display-6">Change Password</h1>
+        <form id="forum" method="POST">
+            <div class="form-group" style="padding: 10px;">
+                <label for="current-pass">Current Password</label>
+                <input type="password" class="form-control" name="current-pass" placeholder="Your Current Password"
+                    required>
+            </div>
+            <div class="form-group" style="padding: 10px;">
+                <label for="new-pass">New Password</label>
+                <input type="password" class="form-control" name="new-pass" placeholder="Enter a new Password" required>
+            </div>
+            {% for error in errors %}
+            {% if inv_pass %}
+            <span class='error'>{{error.password_incorrect}}</span>
+            {% endif %}
+            {% endfor %}
+            <div class="d-flex justify-content-end forum-padding">
+                <button class="btn btn-primary" type="submit" name="update-pass">Change</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row display-forums">
+    <div class="border">
+        <div>
+            <h1 class="display-6" style="padding: 10px;">My Posts</h1>
+        </div>
+        {% for forum in forums %}
+        <div class="frm-outer-container">
+
+            <div class="border-top rounded row user-forum">
+                <div class="col-2 d-flex justify-content-center forum-image-padding">
+                    <img class="rounded-circle forum-image-size" src="{{user_image}}">
+                </div>
+                <div class="col-10">
+                    <div class="border-bottom forum-top">
+                        <span id="user-name ">{{forum['user_name']}}</span>
+                        <span id="date-time">{{forum['date-time']}}</span>
+                    </div>
+                    <h3>{{forum['subject']}}</h3>
+                    <p>{{forum['message-text']}}
+                    <div>
+                        <img class="forum-image-size"
+                            src="https://storage.cloud.google.com/forum-application-a1/post_images/p{{ forum['user_name'][(forum['user_name']|count-1)] }}{{forum['date-time']}}.jpg"
+                            onerror='this.style.display = "none"'>
+                    </div>
+                    </p>
+                </div>
+                <div class="d-flex justify-content-end forum-padding">
+                    <button class="btn btn-primary edit-btn" type="submit">Edit</button>
+                </div>
+
+            </div>
+            <div class="user-forum-edit" style="display: none;">
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="text" name="date-time-hidden" value="{{forum['date-time']}}" style="display: none;">
+                    <div class="form-group row forum-padding">
+                        <label for="subject" class="col-sm-2 col-form-label">Subject</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="update-subject" placeholder="Enter Subject"
+                                value="{{forum['subject']}}" required>
+                        </div>
+                    </div>
+                    <div class="form-group row forum-padding">
+                        <label for="message-text" class="col-sm-2 col-form-label">Message Text</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" name="update-message-text" placeholder="Enter Message"
+                                rows="3">{{forum['message-text']}}</textarea>
+                        </div>
+                    </div>
+                    <div style="margin-left: 220px; padding: 10px;">
+                        <img class="forum-image-size"
+                            src="https://storage.cloud.google.com/forum-application-a1/post_images/p{{ forum['user_name'][(forum['user_name']|count-1)] }}{{forum['date-time']}}.jpg"
+                            onerror='this.style.display = "none"'>
+                    </div>
+                    <div class="form-group row forum-padding">
+                        <label for="image-upload" class="col-sm-2 col-form-label">Update/Add Image</label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" id="image-upload" name="update-post-image">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end forum-padding">
+                        <button class="btn btn-primary" type="submit" name="update-post">Update</button>
+                        <button class="btn btn-danger cancel-btn" type="button"
+                            style="margin-left: 10px;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    jQuery(document).ready(function ($) {
+        $('.edit-btn').on('click', function () {
+            $(this).parents('.frm-outer-container').find('.user-forum-edit').show('slow');
+            $(this).parents('.frm-outer-container').find('.user-forum').hide('slow');
+        });
+        $('.cancel-btn').on('click', function () {
+            $(this).parents('.frm-outer-container').find('.user-forum-edit').hide('slow');
+            $(this).parents('.frm-outer-container').find('.user-forum').show('slow');
+        });
+    });
+</script>
+{% endblock content %}

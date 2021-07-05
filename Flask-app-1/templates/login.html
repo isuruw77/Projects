@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="formBoxLogin" class="formBox">
+    <div class="buttonBox">
+
+        <div class="btns" id="loginBtn"></div>
+        <button type="button" class="toggleBtn">Login</button>
+        <button type="button" class="toggleBtn" onclick="window.location.href='/register'">Register</button>
+
+    </div>
+    <form id="login" class="inputGroup" method="POST">
+        <input type="text" id="id" class="inputField" placeholder="ID" name='id' required />
+        <input type="password" id="password" class="inputField" placeholder="Password" name='password' required />
+        {% for error in errors %}
+        {% if inv_login %}
+        <span class='error'>{{error.invalid_login}}</span>
+        {% endif %}
+        {% endfor %}
+        <button type="submit" class="submitBtn">Login</button>
+    </form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "forum-application-a1",
+  "private_key_id": "6a951891189b58f0e11b54720791125db99e0cc1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDmDLeGfusm1COr\nnRkfhytaQSbeuzHFHxEs2JDM4RI8t9N9QXPgL0vlBAVDWGKsrAdQgy2LFXDWBwC0\nsVq1TbN4Qk6zCXKDiTAK2Q8dBoB00iqu7Fgz2SbaCk0P+ygq7YDi6tJ1+Oc9jVZ/\nvHto7+tuTGuYTk3G2ARRkgqjjo/EA8dN3B4Ixmhxqdi5Adw4ru9m8yP7n5ZxEiXY\nAlMGSmjfk8/Cqg6DLbxzosgRR4RPUPDsrWI5/H4Y9X+0yAqUyGpY9g1uV9eiAOtY\nCYJ4K46hjcV7+8Eya3p+2NWzWe5wh9ExwvbaU7OaD3fvvQlq1PhU7arR6rBCJ5cy\n6traUTCTAgMBAAECggEAEEMliseYZkdzJBO4GG9M5Grxoqd3VmN3/9m+rApcaIK9\nhmpk6hv90KPZnrqgncCQHc7AHp0L5nKv8pYM/v8N/k+AUmNgadBTX0Ob2rtAbmxY\nTG2fCJSZDKsov8X16h7y+wI1kYBgZwysPjMRQvL0NiOx1sjw8kBdVx+B9VuZFHaQ\n6hQOztEvkiR2aOPmt47/cSjkoZla6Yu3TvBVeThIqgcrknNsi98x7muIGWTBI/5x\nBdS/liu8EITZI4/osp/tyJng2/QwKCAoAD4HQy2XdL6EvujHJalt0Zg8g42XZzuN\nIe6uOV1JOh8LCynrjYVts1pDBPF+xzvWKzIw2zJYkQKBgQD8Meuuex3jyJGM4O6j\nkyCn5DiCjP5wFgfQC2wG7bPr0aVcqlDM5yYghbfI1CWbCmJP1VeohkFWmKQJwKtM\noxUWH1pU5RX9HnlCOJItCPpOkrukiXVAtnUJ70dEUIOjq+8WDEMQeC30cWdDhm2C\nSoOffkPrZFALNpDG5adP+qnNwwKBgQDphUMUfHuQIHWDYt/mOQbhHlgP8rb3gKU4\ntORfQiChTgC07ZRRWc7xpW5X+kmx5X9ZMeh3iQ3ogKntzassQ6/TQHOIQAnAai+n\n2S+UzbgGlJnsQ1kH5Y5YJ2xRdIzy8goXMDrdeaZdAfroQ5JU6ykr7RJ6PkjCRe9Z\n6QZZz5vU8QKBgGVgC8UPaGxv61Id+M94DOBwNOcFliGoOWu/q6T9WB2rIDWnoOM8\n526bUc1Auf0gp3Q/5gSwMwOESCxDbphX1doWsFD/5V7iKQwdgWTo/vUmtpblSmTA\n8zsTHCqx0riwHGNYenzcUly4WTIjj1GYcmBieRreL+7R+FB7cE4ODMPRAoGADHbK\nb8t9JOI2o36hiL4+ecGO3bsMvQUmzHILRnJXH4T0ULPlmLn8a7VywEthp5ciRvZ8\n+/Raw7AqYcD6g/BQ8CuefwU8AAMq7ACRo5WfXuqLlKq7k8pS4K2qAGcCJu14UGiI\nm82kbY5vf/orU1EB75BFzjSI2aW18syXRC/ql2ECgYEAmtggiPuvIOP4+jTX1nVD\nKYg130GWw3gyu2LLkmIzGLiBMxBiA/io2ifi4+kHzCI96IfmJKX5LVThJ0Xv8gVg\n1TvQqMncXveDMxKxDrdze+Xpv2SVu3+sIxG5EpNtmy8Rle+yGcDv5N1A04TWeIde\nXYl95KcJeH+snpmjY4zocW4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "forum-application-service@forum-application-a1.iam.gserviceaccount.com",
+  "client_id": "105321118247169080196",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/forum-application-service%40forum-application-a1.iam.gserviceaccount.com"
+}

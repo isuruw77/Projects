@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="main">
+    <div id="formBoxRegister" class="formBox">
+        <div class="buttonBox">
+
+            <div class="btns" id="registerBtn"></div>
+            <button type="button" class="toggleBtn" onclick="window.location.href='/login'">Login</button>
+            <button type="button" class="toggleBtn">Register</button>
+
+        </div>
+        <form id="register" class="inputGroup" method="POST" enctype="multipart/form-data">
+            <input type="text" id="id" class="inputField" placeholder="ID" name='id' required />
+            {% for error in errors %}
+            {% if inv_id %}
+            <span class='error'>{{error.invalid_id}}</span>
+            {% endif %}
+            <input type="text" id="username" class="inputField" placeholder="User Name" name='user_name' required />
+            {% if inv_user_name %}
+            <span class='error'>{{error.invalid_user_name}}</span>
+            {% endif %}
+            {% endfor %}
+            <input type="password" id="password" class="inputField" placeholder="Password" name='password' required />
+
+            <label class="user-profile-pic" for="image-upload">Choose a Profile Picture:</label>
+            <input type="file" class="form-control upload-file" id="image-upload" name="user-image" required>
+
+
+            <button type="submit" class="submitBtn">Register</button>
+
+        </form>
+    </div>
+</div>
+{% endblock content %}
+
+<!-- onChange='this.form.submit()' -->
