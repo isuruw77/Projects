@@ -1,0 +1,10 @@
+
+.artist-image-size{
+    width: 110px;
+    height: 110px;
+}
+
+.error{
+    color: red;
+    font-size: 14px;
+}

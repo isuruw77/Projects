@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="query" style="padding-top: 40px;">
+        <form method="POST">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name='title' placeholder="Title">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name='artist' placeholder="Artist">
+                </div>
+                <div class=" col">
+                    <input type="text" class="form-control" name='year' placeholder="Year">
+                </div>
+                <div class="col-1">
+                    <button class="btn btn-primary" type="submit" name="query">Query</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="error" style="padding: 20px; text-align: center;">
+        {% for error in errors %}
+        {% if inv_query %}
+        <span class='error'>{{error.invalid_query}}</span>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="displayQuery">
+        <div class="row" style="padding-top: 30px; padding-left: 14px;">
+            {% if songs is not none %}
+            {% for song in songs %}
+
+            <div class="col-md-4 border rounded">
+                <form method="POST" id="subscribe">
+                    <div class="row" style="padding: 10px;">
+                        <div class="col-4 justify-content-center" style="padding: 10px; margin-top: 7px;">
+                            <img class="artist-image-size"
+                                src="https://cp-a2.s3-us-west-1.amazonaws.com/{{ song['artist'].replace(' ' , '') }}.jpeg">
+                        </div>
+                        <div class="col-8" style="padding: 10px;">
+                            <div id="Title" style="font-weight: bold; padding: 2px;">{{ song['title'] }}
+                                <input name="song_title" value="{{ song['title'] }}" style="display: none;">
+                            </div>
+                            <div id="Artist" style="padding: 2px;">{{ song['artist'] }}
+                                <input name="song_artist" value="{{ song['artist'] }}" style="display: none;">
+                            </div>
+                            <div id="year" style="color: gray; padding: 2px;">{{ song['year'] }}</div>
+
+                            <button class="btn btn-primary" type="submit" style="margin-left: 145px;"
+                                name="subscribe">Subscribe</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            {% endfor %}
+            {% endif %}
+        </div>
+        </dv>
+    </div>
+
+
+    <div class="subscriptions">
+
+        <div class="row" style="padding-top: 30px; padding-left: 14px;">
+            <h1 class="display-6" style="padding: 5px;">My Subscriptions</h1>
+            {% if subscriptions is not none %}
+            {% for subscription in subscriptions %}
+
+            <div class="col-md-6 border rounded">
+                <form method="POST" id="subscribe">
+                    <div class="row" style="padding: 10px;">
+                        <div class="col-4 justify-content-center" style="padding: 10px; margin-top: 7px;">
+                            <img class="artist-image-size"
+                                src="https://cp-a2.s3-us-west-1.amazonaws.com/{{ subscription[0]['artist'].replace(' ' , '') }}.jpeg">
+                        </div>
+                        <div class="col-8" style="padding: 10px;">
+                            <div id="Title" style="font-weight: bold; padding: 2px;">{{ subscription[0]['title'] }}
+                                <input name="song_title" value="{{ subscription[0]['title'] }}" style="display: none;">
+                            </div>
+                            <div id="Artist" style="padding: 2px;">{{ subscription[0]['artist'] }}
+                                <input name="song_artist" value="{{ subscription[0]['artist'] }}"
+                                    style="display: none;">
+                            </div>
+                            <div id="year" style="color: gray; padding: 2px;">{{ subscription[0]['year'] }}</div>
+
+                            <button class="btn btn-primary" type="submit" style="margin-left: 145px;"
+                                name="remove">Remove</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            {% endfor %}
+            {% endif %}
+        </div>
+        </dv>
+    </div>
+</div>
+{% endblock content %}
